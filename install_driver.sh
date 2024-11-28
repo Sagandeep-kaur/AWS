@@ -2,9 +2,9 @@
 wget -N https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.85/linux64/chrome-linux64.zip -P ~/
 unzip ~/chrome-linux64.zip -d ~/
 rm ~/chrome-linux64.zip
-sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
-sudo chown root:root /usr/local/bin/chromedriver
-sudo chmod 0755 /usr/local/bin/chromedriver
+sudo mv -f ~/chrome /usr/local/bin/chrome
+sudo chown root:root /usr/local/bin/chrome
+sudo chmod 0755 /usr/local/bin/chrome
 
 
 # Install chrome broswer
