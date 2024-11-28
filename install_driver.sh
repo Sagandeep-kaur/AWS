@@ -1,5 +1,5 @@
 # Download and Install chromedriver
-wget -N https://chromedriver.storage.googleapis.com/126.0.6478.55/chromedriver_linux64.zip -P ~/
+wget -N https://chromedriver.storage.googleapis.com/131.0.6778.85/chromedriver_linux64.zip -P ~/
 unzip ~/chromedriver_linux64.zip -d ~/
 rm ~/chromedriver_linux64.zip
 sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
