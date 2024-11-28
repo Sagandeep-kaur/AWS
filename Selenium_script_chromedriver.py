@@ -3,7 +3,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-#from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -28,9 +28,10 @@ folder = os.path.dirname(chrome_install)
 chromedriver_path = os.path.join(folder, "chromedriver.exe")
 service = webdriver.ChromeService(chromedriver_path)
 """
-chrome_options = Options()
-chrome_options.add_argument("--headless=new")
-driver = webdriver.Chrome(options=chrome_options)
+#chrome_options = Options()
+#chrome_options.add_argument("--headless=new")
+driver = webdriver.Chrome(ChromeDriverManager().install())
+#driver = webdriver.Chrome(options=chrome_options)
 
 
 #driver = webdriver.Chrome(service = service, options = options)
