@@ -18,23 +18,19 @@ from selenium.webdriver.support.ui import Select
 """
 # options.add_argument('--no-sandbox')
 # options.add_argument('--disable-dev-shm-usage')
-service = Service(executable_path = r'C:/Users/sagandeepk/Downloads/chromedriver-linux64/chromedriver')
-options = webdriver.ChromeOptions()
-driver = webdriver.Chrome(service=service, options=options)
-# driver = webdriver.Chrome(, service= service, options=options)
+#service = Service(executable_path = r'C:/Users/sagandeepk/Downloads/chromedriver-linux64/chromedriver')
+#options = webdriver.ChromeOptions()
+#driver = webdriver.Chrome(service=service, options=options)
 
-chrome_install = ChromeDriverManager().install()
-folder = os.path.dirname(chrome_install)
-chromedriver_path = os.path.join(folder, "chromedriver.exe")
-service = webdriver.ChromeService(chromedriver_path)
+
+#chrome_install = ChromeDriverManager().install()
+#folder = os.path.dirname(chrome_install)
+#chromedriver_path = os.path.join(folder, "chromedriver.exe")
+#service = webdriver.ChromeService(chromedriver_path)
 """
-#chrome_options = Options()
-#chrome_options.add_argument("--headless=new")
+
 driver = webdriver.Chrome(ChromeDriverManager().install())
-#driver = webdriver.Chrome(options=chrome_options)
 
-
-#driver = webdriver.Chrome(service = service, options = options)
 
 # Navigate to a website
 driver.get("https://www.techlistic.com/p/selenium-practice-form.html")
