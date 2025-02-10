@@ -9,4 +9,9 @@ print('8th line via gui')
 print('9th line via cli')
 print('editing via cli')
 print('10th line via gui')
+<<<<<<< HEAD
 print('via master branch')
+=======
+print('editing from another branch')
+
+>>>>>>> 5fdbdcadca6e2b269225dcfa28344488415f2752
