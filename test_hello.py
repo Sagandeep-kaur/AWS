@@ -8,3 +8,5 @@ print('6th line via gui')
 print('8th line via gui')
 print('9th line via cli')
 print('editing via cli')
+print('10th line via gui')
+
