@@ -10,4 +10,5 @@ print('9th line via cli')
 print('editing via cli')
 print('10th line via gui')
 print('editing from another branch')
+print('editing from anoter branch')
 
