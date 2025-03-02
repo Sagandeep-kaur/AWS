@@ -41,9 +41,10 @@ pipeline {
                 script {
                     bat """
                         if not exist "${REPORT_DIR}" mkdir "${REPORT_DIR}"
+                        dir ${REPORT_DIR}
                         ${VENV_DIR}\\Scripts\\activate
                         pytest --maxfail=5 --disable-warnings --html="${REPORT_DIR}/test_report.html"
-                        dir ${REPORT_DIR}
+                       
                     """
                 }
             }
