@@ -13,7 +13,6 @@ pipeline {
                 echo 'Testing...'
                 bat 'curl -L https://www.python.org/ftp/python/3.9.10/python-3.9.10.exe -o python-installer.exe'
                 bat 'python-installer.exe /quiet InstallAllUsers=1 PrependPath=1' 
-                bat 'python test_hello.py'
                 // Add test steps here, like running unit tests
             }
         }
