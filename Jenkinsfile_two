@@ -25,6 +25,7 @@ pipeline {
                 }
                 // Install required dependencies
                 bat """
+           
                     ${VENV_DIR}\\Scripts\\activate
                     //pip install -r requirements.txt
                      pip install pytest
@@ -39,8 +40,9 @@ pipeline {
                 // Run tests with pytest and generate HTML report
                 script {
                     bat """
+                        mkdir ${REPORT_DIR} 
                         ${VENV_DIR}\\Scripts\\activate
-                        mkdir -p ${REPORT_DIR}
+                        //mkdir -p ${REPORT_DIR}
                         pytest --maxfail=5 --disable-warnings --html=${REPORT_DIR}/test_report.html
                         dir ${REPORT_DIR}
                     """
@@ -51,7 +53,7 @@ pipeline {
         stage('Publish Report') {
             steps {
                 // Archive the test results (HTML file)
-                archiveArtifacts artifacts: '${REPORT_DIR}/test_report.html', allowEmptyArchive: true
+                archiveArtifacts artifacts: '**/test_reports/test_report.html', allowEmptyArchive: true
             }
         }
     }
