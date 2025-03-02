@@ -1,0 +1,61 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define Python virtual environment path
+        VENV_DIR = "${WORKSPACE}/.venv"
+        REPORT_DIR = "${WORKSPACE}/test-reports"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the repository
+                checkout scm
+            }
+        }
+        
+        stage('Set up Python Environment') {
+            steps {
+                // Create a virtual environment if it doesn't exist
+                script {
+                    if (!fileExists("${VENV_DIR}/bin/activate")) {
+                        sh "python3 -m venv ${VENV_DIR}"
+                    }
+                }
+                // Install required dependencies
+                sh """
+                    source ${VENV_DIR}/bin/activate
+                    //pip install -r requirements.txt
+                """
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run tests with pytest and generate HTML report
+                script {
+                    sh """
+                        source ${VENV_DIR}/bin/activate
+                        mkdir -p ${REPORT_DIR}
+                        pytest --maxfail=5 --disable-warnings --html=${REPORT_DIR}/test_report.html
+                    """
+                }
+            }
+        }
+
+        stage('Publish Report') {
+            steps {
+                // Archive the test results (HTML file)
+                archiveArtifacts artifacts: 'test-reports/test_report.html', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up, deactivate the virtual environment
+            cleanWs()
+        }
+    }
+}
