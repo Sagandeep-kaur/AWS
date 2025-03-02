@@ -53,7 +53,7 @@ pipeline {
             steps {
                 // Archive the test results (HTML file)
                 //archiveArtifacts artifacts: '**/test-reports/test_report.html', allowEmptyArchive: true
-                archiveArtifacts artifacts: "**/test-reports/test_report.html", allowEmptyArchive: true
+                archiveArtifacts artifacts: '**/test_report.html', allowEmptyArchive: true
             }
         }
     }
