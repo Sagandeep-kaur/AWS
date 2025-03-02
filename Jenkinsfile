@@ -11,6 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
+                sh 'python test_hello.py'
                 // Add test steps here, like running unit tests
             }
         }
