@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        jenkins.plugins.shiningpanda.tools.PythonInstallation 'Python3'  // 'python3' should be the name of the Python installation you configured in Jenkins
+        python 'Python3'  // 'python3' should be the name of the Python installation you configured in Jenkins
     }
     stages {
         stage('Build') {
