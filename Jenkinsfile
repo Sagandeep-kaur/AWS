@@ -11,10 +11,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                bat 'apt install python3 -y'
-                bat 'python3 --version'
-                sh 'python3 --version'
-                sh 'python3 test_hello.py'
+                bat 'choco install python --version=3.9.10 -y'
+                bat 'python --version'
+                // sh 'python3 --version'
+                bat 'python3 test_hello.py'
                 // Add test steps here, like running unit tests
             }
         }
