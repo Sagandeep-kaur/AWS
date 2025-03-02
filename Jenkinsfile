@@ -11,8 +11,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                apt install python3 -y
-                sh 'python test_hello.py'
+                sh sudo apt install python3 -y
+                sh 'python3 test_hello.py'
                 // Add test steps here, like running unit tests
             }
         }
