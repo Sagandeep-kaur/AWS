@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools {
+        python 'python3'  // 'python3' should be the name of the Python installation you configured in Jenkins
+    }
     stages {
         stage('Build') {
             steps {
@@ -11,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'python3 test_hello.py'
+                sh 'python test_hello.py'
                 // Add test steps here, like running unit tests
             }
         }
