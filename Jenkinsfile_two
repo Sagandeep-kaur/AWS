@@ -38,7 +38,7 @@ pipeline {
             steps {
                 // Run tests with pytest and generate HTML report
                 script {
-                    sh """
+                    bat """
                         source ${VENV_DIR}/bin/activate
                         mkdir -p ${REPORT_DIR}
                         pytest --maxfail=5 --disable-warnings --html=${REPORT_DIR}/test_report.html
