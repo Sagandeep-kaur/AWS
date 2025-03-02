@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Testing...'
                 sh 'apt install python3 -y'
-                sh 'python --version'
+                sh 'python3 --version'
                 sh 'python3 test_hello.py'
                 // Add test steps here, like running unit tests
             }
