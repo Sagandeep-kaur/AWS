@@ -40,9 +40,8 @@ pipeline {
                 // Run tests with pytest and generate HTML report
                 script {
                     bat """
-                        mkdir ${REPORT_DIR} 
+                        if not exist "${REPORT_DIR}" mkdir "${REPORT_DIR}"
                         ${VENV_DIR}\\Scripts\\activate
-                        //mkdir -p ${REPORT_DIR}
                         pytest --maxfail=5 --disable-warnings --html=${REPORT_DIR}/test_report.html
                         dir ${REPORT_DIR}
                     """
