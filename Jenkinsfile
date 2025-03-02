@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'apt install python3 -y'
+                bat 'apt install python3 -y'
                 bat 'python3 --version'
                 sh 'python3 --version'
                 sh 'python3 test_hello.py'
