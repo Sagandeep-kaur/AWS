@@ -17,3 +17,6 @@ def test_func()
   print('edit from main')
 }
 
+test_func()
+
+
