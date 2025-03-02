@@ -1,4 +1,4 @@
-def test_func()
+def test_func():
 { 
   print('hello')
   print("2nd line via git cli")
