@@ -11,9 +11,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                bat 'choco install python --version=3.9.10 -y'
-                bat 'python --version'
-                // sh 'python3 --version'
+                bat 'curl -L https://www.python.org/ftp/python/3.9.10/python-3.9.10.exe -o python-installer.exe'
+                bat 'python-installer.exe /quiet InstallAllUsers=1 PrependPath=1' 
                 bat 'python3 test_hello.py'
                 // Add test steps here, like running unit tests
             }
