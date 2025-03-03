@@ -25,6 +25,7 @@ pipeline {
                         bat "python -m venv ${VENV_DIR}"
                         
                 }
+                }
                 // Install required dependencies
                 bat """
            
