@@ -6,12 +6,16 @@ pipeline {
         VENV_DIR = "${WORKSPACE}/.venv"
         REPORT_DIR = "${WORKSPACE}/test-reports"
     }
+    parameters {
+        credentials(name: 'MY_CREDENTIALS', defaultValue: '', description: 'Select your credentials')
+    }
 
     stages {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
                 checkout scm
+
             }
         }
         
@@ -21,6 +25,12 @@ pipeline {
                 script {
                     if (!fileExists("${VENV_DIR}/bin/activate")) {
                         bat "python -m venv ${VENV_DIR}"
+                        withCredentials([usernamePassword(credentialsId: params.MY_CREDENTIALS, 
+                                                       usernameVariable: 'USERNAME', 
+                                                       passwordVariable: 'PASSWORD')]) {
+                        // Use the credentials in the pipeline
+                        echo "Using username: ${USERNAME}"
+                        echo "Using password: ${PASSWORD}"
                     }
                 }
                 // Install required dependencies
